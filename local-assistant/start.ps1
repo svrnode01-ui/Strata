@@ -11,6 +11,7 @@ $profile = Get-Content -LiteralPath $profilePath -Raw | ConvertFrom-Json
 if (-not (Test-Path -LiteralPath $StrataCommand -PathType Leaf)) { throw 'StrataCommand does not exist' }
 $arguments = @('launch', '--family', $profile.family, '--model', $profile.model,
     '--context', $profile.context, '--vision', $profile.vision,
+    '--drafting', $profile.drafting, '--draft-vocab', $profile.draft_vocab,
     '--parallel', [string]$profile.parallel, '--port', [string]$profile.port,
     '--access', 'local', '--data-dir', $DataDirectory,
     '--save-preset', $profile.profile_name, '--yes', '--no-tui')

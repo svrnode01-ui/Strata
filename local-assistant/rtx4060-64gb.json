@@ -1,15 +1,15 @@
 {
-  "profile_name": "RTX4060 Flash 32K work",
+  "profile_name": "RTX4060 Flash 32K assistant",
   "family": "qwen",
   "model": "iq2_xs",
   "context": "32k",
   "vision": "off",
   "parallel": 1,
+  "drafting": "dflash2",
+  "draft_vocab": "cyrillic",
   "port": 8091,
   "engine_options": {
-    "pool-workers": "7",
-    "ram-keep-gib": "8",
-    "vram-reserve-mib": "768"
+    "pool-workers": "7"
   },
-  "validation": "Conservative starting profile for RTX 4060 Laptop 8 GiB and Ryzen 7 7735HS / 64 GiB. Not a measured speed improvement. Compare with stock before selecting tuning values."
+  "validation": "Measured on 2026-11-19, Terminal 0.2.16 / engine 0.1.62, RTX 4060 Laptop 8 GiB and Ryzen 7 7735HS / 64 GiB DDR5-4800. Six-run medians: seven workers with DFlash2 42.68 tokens/s; six workers 42.55; DFlash2 off 34.75. The six/seven difference is within run variation, so this profile retains the default seven. RAM and VRAM placement retain the engine defaults. See README for quality and workload limits. A repeat through the final launcher measured 45.20 tokens/s; this is run variation with automatic placement, not a claimed fork speedup."
 }
