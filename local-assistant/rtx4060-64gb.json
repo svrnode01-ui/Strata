@@ -1,0 +1,15 @@
+{
+  "profile_name": "RTX4060 Flash 32K work",
+  "family": "qwen",
+  "model": "iq2_xs",
+  "context": "32k",
+  "vision": "off",
+  "parallel": 1,
+  "port": 8091,
+  "engine_options": {
+    "pool-workers": "7",
+    "ram-keep-gib": "8",
+    "vram-reserve-mib": "768"
+  },
+  "validation": "Conservative starting profile for RTX 4060 Laptop 8 GiB and Ryzen 7 7735HS / 64 GiB. Not a measured speed improvement. Compare with stock before selecting tuning values."
+}
