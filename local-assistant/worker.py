@@ -125,7 +125,9 @@ def generate(url: str, model: str, job: dict, result_path: Path, protocol: str =
             def redirect_request(self, *args, **kwargs):
                 raise ValueError("The local endpoint must not redirect")
         opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
-        with opener.open(req, timeout=min(job["deadline"], 60)) as response:
+        # Non-streaming generation may legitimately need more than 60 seconds.
+        # The parent enforces the total deadline, including a stalled connection.
+        with opener.open(req, timeout=job["deadline"]) as response:
             body = response.read(4 * 1024 * 1024 + 1)
         if len(body) > 4 * 1024 * 1024:
             raise ValueError("Response exceeded 4 MiB")
